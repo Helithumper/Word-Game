@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.peyton.wordgame.gamestates.SinglePlayerGameWindow;
+import com.peyton.wordgame.multiplayer.PlayerIntializationWindow;
 import com.peyton.wordgame.util.Utilities;
 
 public class MainMenu extends JFrame implements ActionListener{
@@ -62,6 +64,12 @@ public class MainMenu extends JFrame implements ActionListener{
 		}
 		if(e.getSource().equals(howToButton)){
 			Utilities.throwErrorBox("How to Box", "How To Title");
+		}
+		if(e.getSource().equals(singlePlayerButton)){
+			new SinglePlayerGameWindow();
+		}
+		if(e.getSource().equals(multiPlayerButton)){
+			new PlayerIntializationWindow();
 		}
 		
 	}
