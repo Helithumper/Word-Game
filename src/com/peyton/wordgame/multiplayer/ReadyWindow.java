@@ -41,7 +41,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 		setLayout(new GridLayout(2, 1));
 		readyTitle = new JPanel();
 		String readyPlayer = (currentPlayer == 0) ? name1: name2;
-		title = new JLabel(readyPlayer + " Are you Ready?");
+		title = new JLabel(readyPlayer + " Are You Ready?");
 		title.setFont(Utilities.TITLE_FONT);
 		readyTitle.add(title);
 		add(readyTitle);
