@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.peyton.wordgame.util.StaticStorage;
+
 public class PlayerIntializationWindow extends JFrame implements ActionListener {
 	private JLabel player1NameLabel, player2NameLabel;
 	private JTextField player1Name, player2Name;
@@ -54,7 +56,9 @@ public class PlayerIntializationWindow extends JFrame implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(submitButton)) {
 			setVisible(false);
-			new ReadyWindow(player1Name.getText(), player2Name.getText(), 0);
+			StaticStorage.playerNames[0] = player1Name.getText();
+			StaticStorage.playerNames[1] = player2Name.getText();
+			new ReadyWindow(0);
 		}
 
 	}

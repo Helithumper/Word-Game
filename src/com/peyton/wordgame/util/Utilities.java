@@ -29,7 +29,7 @@ public class Utilities {
 	/**
 	 * Main font for most texts
 	 */
-	
+
 	public static final Font TITLE_FONT = new Font("Serif", Font.BOLD, 36);
 	public static final Font TEXT_FONT = new Font("Serif", Font.BOLD, 16);
 

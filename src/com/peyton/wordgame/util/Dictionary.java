@@ -13,7 +13,7 @@ public class Dictionary {
 			Scanner reader = new Scanner(file);
 			int i = 0;
 			dictionary = new String[1000];
-			while(reader.hasNextLine()){
+			while (reader.hasNextLine()) {
 				dictionary[i] = reader.nextLine();
 				i++;
 			}

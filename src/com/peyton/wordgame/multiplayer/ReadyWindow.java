@@ -11,10 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.peyton.wordgame.game.GameWindow;
+import com.peyton.wordgame.util.StaticStorage;
 import com.peyton.wordgame.util.Utilities;
 
 public class ReadyWindow extends JFrame implements ActionListener {
-	private String name1, name2;
+
 	/**
 	 * 0 For Player 1 <br>
 	 * 1 For Player 2
@@ -26,22 +27,19 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	private JLabel title;
 	private JButton button;
 
-	public ReadyWindow(String name1, String name2, int currentPlayer) {
-		this.name1 = name1;
-		this.name2 = name2;
+	public ReadyWindow(int currentPlayer) {
 		this.currentPlayer = currentPlayer;
-		readyPlayer = (currentPlayer == 0) ? name1: name2;
-		
-	
-		
+		readyPlayer = (currentPlayer == 0) ? StaticStorage.playerNames[0]
+				: StaticStorage.playerNames[1];
+
 		initWindow();
 	}
 
 	private void initWindow() {
-		setMinimumSize(new Dimension(300,400));
+		setMinimumSize(new Dimension(300, 400));
 		setLayout(new GridLayout(2, 1));
 		readyTitle = new JPanel();
-		title = new JLabel("<html>"+readyPlayer + "<br>Are You Ready?</html>");
+		title = new JLabel("<html>" + readyPlayer + "<br>Are You Ready?</html>");
 		title.setFont(Utilities.TITLE_FONT);
 		readyTitle.add(title);
 		add(readyTitle);
@@ -59,10 +57,10 @@ public class ReadyWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(button)){
+		if (e.getSource().equals(button)) {
 			setVisible(false);
-			new GameWindow(readyPlayer);
+			new GameWindow(currentPlayer);
 		}
-		
+
 	}
 }
