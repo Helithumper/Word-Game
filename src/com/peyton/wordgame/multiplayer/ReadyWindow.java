@@ -59,7 +59,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(button)){
-			new GameWindow(readyPlayer);
+			new GameWindow(readyPlayer); //ur mum
 		}
 		
 	}
