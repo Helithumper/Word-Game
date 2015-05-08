@@ -1,7 +1,6 @@
 package com.peyton.wordgame.menus;
 
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +13,7 @@ import javax.swing.SwingConstants;
 
 import com.peyton.wordgame.gamestates.SinglePlayerGameWindow;
 import com.peyton.wordgame.multiplayer.PlayerIntializationWindow;
+import com.peyton.wordgame.util.Dictionary;
 import com.peyton.wordgame.util.Utilities;
 
 public class MainMenu extends JFrame implements ActionListener {

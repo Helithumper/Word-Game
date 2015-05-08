@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.peyton.wordgame.game.GameWindow;
 import com.peyton.wordgame.util.Utilities;
 
 public class ReadyWindow extends JFrame implements ActionListener {
@@ -40,14 +41,14 @@ public class ReadyWindow extends JFrame implements ActionListener {
 		setMinimumSize(new Dimension(300,400));
 		setLayout(new GridLayout(2, 1));
 		readyTitle = new JPanel();
-		String readyPlayer = (currentPlayer == 0) ? name1: name2;
-		title = new JLabel(readyPlayer + " Are You Ready?");
+		title = new JLabel("<html>"+readyPlayer + "<br>Are You Ready?</html>");
 		title.setFont(Utilities.TITLE_FONT);
 		readyTitle.add(title);
 		add(readyTitle);
 
 		buttonPanel = new JPanel();
 		button = new JButton("READY!");
+		button.addActionListener(this);
 		buttonPanel.add(button);
 		add(buttonPanel);
 
@@ -59,6 +60,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(button)){
+			setVisible(false);
 			new GameWindow(readyPlayer);
 		}
 		
