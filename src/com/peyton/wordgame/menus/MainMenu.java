@@ -16,30 +16,31 @@ import com.peyton.wordgame.gamestates.SinglePlayerGameWindow;
 import com.peyton.wordgame.multiplayer.PlayerIntializationWindow;
 import com.peyton.wordgame.util.Utilities;
 
-public class MainMenu extends JFrame implements ActionListener{
+public class MainMenu extends JFrame implements ActionListener {
 	private JPanel titlePanel, buttonPanel;
 	private JLabel titleLabel;
-	private JButton singlePlayerButton, multiPlayerButton, howToButton, aboutButton;
-	
-	public MainMenu(){
+	private JButton singlePlayerButton, multiPlayerButton, howToButton,
+			aboutButton;
+
+	public MainMenu() {
 		initFrame();
 	}
-	
-	private void initFrame(){
-		setLayout(new GridLayout(2,1));
-		setMinimumSize(new Dimension(400,400));
-		
-		//TitlePanel
+
+	private void initFrame() {
+		setLayout(new GridLayout(2, 1));
+		setMinimumSize(new Dimension(400, 400));
+
+		// TitlePanel
 		titlePanel = new JPanel();
 		titleLabel = new JLabel("Word Game");
-		titleLabel.setFont(new Font("Serif",Font.BOLD, 36));
+		titleLabel.setFont(Utilities.TITLE_FONT);
 		titleLabel.setVerticalTextPosition(SwingConstants.CENTER);
 		titlePanel.add(titleLabel);
 		add(titlePanel);
-		
-		//Buttons Panel
+
+		// Buttons Panel
 		buttonPanel = new JPanel();
-		buttonPanel.setLayout(new GridLayout(4,1));
+		buttonPanel.setLayout(new GridLayout(4, 1));
 		singlePlayerButton = new JButton("Single Player");
 		multiPlayerButton = new JButton("Multiplayer");
 		howToButton = new JButton("How To Play");
@@ -53,32 +54,30 @@ public class MainMenu extends JFrame implements ActionListener{
 		buttonPanel.add(howToButton);
 		buttonPanel.add(aboutButton);
 		add(buttonPanel);
-		
-		
+
 		setLocationRelativeTo(null);
 		pack();
 		setVisible(true);
-		
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(aboutButton)){
+		if (e.getSource().equals(aboutButton)) {
 			Utilities.throwErrorBox("About Box", "About Title");
 		}
-		if(e.getSource().equals(howToButton)){
+		if (e.getSource().equals(howToButton)) {
 			Utilities.throwErrorBox("How to Box", "How To Title");
 		}
-		if(e.getSource().equals(singlePlayerButton)){
+		if (e.getSource().equals(singlePlayerButton)) {
 			setVisible(false);
 			new SinglePlayerGameWindow();
 		}
-		if(e.getSource().equals(multiPlayerButton)){
+		if (e.getSource().equals(multiPlayerButton)) {
 			setVisible(false);
 			new PlayerIntializationWindow();
 		}
-		
+
 	}
-	
-	
+
 }
