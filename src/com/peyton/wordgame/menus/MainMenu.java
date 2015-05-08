@@ -47,11 +47,15 @@ public class MainMenu extends JFrame implements ActionListener{
 		aboutButton = new JButton("About");
 		aboutButton.addActionListener(this);
 		buttonPanel.add(singlePlayerButton);
+		singlePlayerButton.addActionListener(this);
 		buttonPanel.add(multiPlayerButton);
+		multiPlayerButton.addActionListener(this);
 		buttonPanel.add(howToButton);
 		buttonPanel.add(aboutButton);
 		add(buttonPanel);
 		
+		
+		setLocationRelativeTo(null);
 		pack();
 		setVisible(true);
 		
@@ -66,9 +70,11 @@ public class MainMenu extends JFrame implements ActionListener{
 			Utilities.throwErrorBox("How to Box", "How To Title");
 		}
 		if(e.getSource().equals(singlePlayerButton)){
+			setVisible(false);
 			new SinglePlayerGameWindow();
 		}
 		if(e.getSource().equals(multiPlayerButton)){
+			setVisible(false);
 			new PlayerIntializationWindow();
 		}
 		
