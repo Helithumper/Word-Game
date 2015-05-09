@@ -30,13 +30,14 @@ public class GameWindow extends JFrame implements ActionListener {
 
 		this.currentPlayerID = currentPlayerID;
 		Random rand = new Random();
-		answerWordString = StaticStorage.dict.getWord((rand.nextInt(1001)))
+		answerWordString = StaticStorage.dict.getWord((rand.nextInt(1000)))
 				.toLowerCase();
 		initFrame();
 		System.out.println(answerWordString);
 	}
 
 	private void initFrame() {
+		setResizable(false);
 		setMinimumSize(new Dimension(300, 400));
 		setLayout(new GridLayout(3, 1));
 		wordPanel = new JPanel();
@@ -51,6 +52,7 @@ public class GameWindow extends JFrame implements ActionListener {
 
 		inputPanel = new JPanel();
 		guessField = new JTextField();
+		guessField.addActionListener(this);
 		submitButton = new JButton("Submit");
 		submitButton.addActionListener(this);
 		inputPanel.setLayout(new GridLayout(2, 1));
@@ -94,7 +96,7 @@ public class GameWindow extends JFrame implements ActionListener {
 		numLivesLost++;
 		if (numLivesLost == 4) {
 			setVisible(false);
-			new EndGamePanel(false, currentPlayerID);
+			new EndGamePanel(false, currentPlayerID,answerWordString);
 		}
 		lives[lives.length - numLivesLost].setText("NOT HERE");
 
@@ -102,7 +104,7 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(submitButton)) {
+		if (e.getSource().equals(submitButton) || e.getSource().equals(guessField)) {
 			if (guessField.getText().length() != answerWordString.length()) {
 				Utilities.throwErrorBox(
 						"Your Guess is not the same length as the answer",
@@ -119,6 +121,6 @@ public class GameWindow extends JFrame implements ActionListener {
 	private void endGame() {
 		setVisible(false);
 		StaticStorage.playerScores[currentPlayerID]++;
-		new EndGamePanel(true, currentPlayerID);
+		new EndGamePanel(true, currentPlayerID, answerWordString);
 	}
 }

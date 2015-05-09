@@ -7,7 +7,7 @@ public class Dictionary {
 	private String[] dictionary;
 	
 	public Dictionary(){
-		File file = new File(Dictionary.class.getResource("wordsEn.txt").getPath());
+		File file = new File(Dictionary.class.getResource("nounlist.txt").getPath());
 		
 		try{
 			Scanner reader = new Scanner(file);

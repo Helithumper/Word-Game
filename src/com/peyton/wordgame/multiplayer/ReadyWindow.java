@@ -36,6 +36,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	}
 
 	private void initWindow() {
+		setResizable(false);
 		setMinimumSize(new Dimension(300, 400));
 		setLayout(new GridLayout(2, 1));
 		readyTitle = new JPanel();

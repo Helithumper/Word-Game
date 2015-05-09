@@ -22,14 +22,17 @@ public class EndGamePanel extends JFrame implements ActionListener {
 	private JPanel titlePanel, buttonsPanel;
 	private JLabel titleLabel, scoresLabel;
 	private JButton mainMenuButton, nextRoundButton;
+	private String answer;
 
-	public EndGamePanel(boolean winner, int currentPlayerID) {
+	public EndGamePanel(boolean winner, int currentPlayerID,String answer) {
 		isWinner = winner;
+		this.answer = answer;
 		this.currentPlayerID = currentPlayerID;
 		initWindow();
 	}
 
 	private void initWindow() {
+		setResizable(false);
 		setMinimumSize(new Dimension(600, 400));
 		setLayout(new GridLayout(2, 1));
 		titlePanel = new JPanel();
@@ -38,13 +41,14 @@ public class EndGamePanel extends JFrame implements ActionListener {
 				+ StaticStorage.playerScores[0] + "<br>"
 				+ StaticStorage.playerNames[1] + ": "
 				+ StaticStorage.playerScores[1] + "</html>");
+		scoresLabel.setFont(Utilities.TITLE_FONT);
 		mainMenuButton = new JButton("Main Menu");
 		nextRoundButton = new JButton("Start Next Round");
 		if (isWinner) {
 			titleLabel = new JLabel("Winner!");
 
 		} else {
-			titleLabel = new JLabel("LOSER!");
+			titleLabel = new JLabel("LOSER! The Answer was " +answer.toUpperCase());
 		}
 		titleLabel.setFont(Utilities.TITLE_FONT);
 		titlePanel.setLayout(new GridLayout(2, 1));

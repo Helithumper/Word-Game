@@ -25,12 +25,15 @@ public class PlayerIntializationWindow extends JFrame implements ActionListener 
 	}
 
 	private void initWindow() {
+		setResizable(false);
 		setLayout(new GridLayout(2, 1));
 		inputPanel = new JPanel();
 		player1NameLabel = new JLabel("Player 1:");
 		player2NameLabel = new JLabel("Player 2:");
 		player1Name = new JTextField();
+		player1Name.addActionListener(this);
 		player2Name = new JTextField();
+		player2Name.addActionListener(this);
 		inputPanel.setLayout(new GridLayout(2, 2));
 		inputPanel.add(player1NameLabel);
 		inputPanel.add(player1Name);
@@ -54,7 +57,7 @@ public class PlayerIntializationWindow extends JFrame implements ActionListener 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(submitButton)) {
+		if (e.getSource().equals(submitButton) || e.getSource().equals(player1Name) || e.getSource().equals(player2Name)) {
 			setVisible(false);
 			StaticStorage.playerNames[0] = player1Name.getText();
 			StaticStorage.playerNames[1] = player2Name.getText();
