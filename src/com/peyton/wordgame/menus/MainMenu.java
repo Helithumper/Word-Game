@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 
 import com.peyton.wordgame.gamestates.SinglePlayerGameWindow;
 import com.peyton.wordgame.multiplayer.PlayerIntializationWindow;
+import com.peyton.wordgame.singleplayer.SinglePlayerInstantiationWindow;
 import com.peyton.wordgame.util.Utilities;
 
 public class MainMenu extends JFrame implements ActionListener {
@@ -71,7 +72,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		}
 		if (e.getSource().equals(singlePlayerButton)) {
 			setVisible(false);
-			new SinglePlayerGameWindow();
+			new SinglePlayerInstantiationWindow();
 		}
 		if (e.getSource().equals(multiPlayerButton)) {
 			setVisible(false);

@@ -26,11 +26,19 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	private JPanel readyTitle, buttonPanel;
 	private JLabel title;
 	private JButton button;
+	private boolean isSingle = false;
 
 	public ReadyWindow(int currentPlayer) {
 		this.currentPlayer = currentPlayer;
 		readyPlayer = (currentPlayer == 0) ? StaticStorage.playerNames[0]
 				: StaticStorage.playerNames[1];
+
+		initWindow();
+	}
+	public ReadyWindow(int currentPlayer, boolean isSingle) {
+		this.currentPlayer = currentPlayer;
+		this.isSingle = isSingle;
+		readyPlayer = StaticStorage.playerNames[0];
 
 		initWindow();
 	}
@@ -60,7 +68,11 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(button)) {
 			setVisible(false);
-			new GameWindow(currentPlayer);
+			if(isSingle){
+				new GameWindow(2);
+			}
+			else{
+			new GameWindow(currentPlayer);}
 		}
 
 	}

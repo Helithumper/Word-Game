@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.peyton.wordgame.singleplayer.SinglePlayerEndGamePanel;
 import com.peyton.wordgame.util.StaticStorage;
 import com.peyton.wordgame.util.Utilities;
 
@@ -94,9 +95,13 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	private void updateLives() {
 		numLivesLost++;
-		if (numLivesLost == 4) {
+		if (numLivesLost == 4 && currentPlayerID!=2) {
 			setVisible(false);
 			new EndGamePanel(false, currentPlayerID,answerWordString);
+		}
+		else if(numLivesLost==4 && currentPlayerID==2){
+			setVisible(false);
+			new SinglePlayerEndGamePanel(false,answerWordString);
 		}
 		lives[lives.length - numLivesLost].setText("NOT HERE");
 
@@ -120,7 +125,13 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	private void endGame() {
 		setVisible(false);
+		if(currentPlayerID!=2){
 		StaticStorage.playerScores[currentPlayerID]++;
-		new EndGamePanel(true, currentPlayerID, answerWordString);
+		new EndGamePanel(true, currentPlayerID, answerWordString);}
+		else{
+			StaticStorage.playerScores[0]++;
+			setVisible(false);
+			new SinglePlayerEndGamePanel(true,answerWordString);
+		}
 	}
 }
