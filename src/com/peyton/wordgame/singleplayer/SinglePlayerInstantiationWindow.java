@@ -48,6 +48,7 @@ public class SinglePlayerInstantiationWindow extends JFrame implements
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(submitButton)
 				|| e.getSource().equals(inputField)) {
+			setVisible(false);
 			StaticStorage.playerNames[0] = inputField.getText();
 			StaticStorage.playerScores[0] = 0;
 			new ReadyWindow(0, true);

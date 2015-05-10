@@ -65,7 +65,7 @@ public class MainMenu extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(aboutButton)) {
-			Utilities.throwErrorBox("About Box", "About Title");
+			Utilities.openInBrowser("https://Helithumper.github.io/about.html");
 		}
 		if (e.getSource().equals(howToButton)) {
 			Utilities.openInBrowser("https://Helithumper.github.io/howto.html");
