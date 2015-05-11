@@ -26,7 +26,7 @@ public class SinglePlayerInstantiationWindow extends JFrame implements
 	}
 
 	private void initFrame() {
-		setSize(new Dimension(400,600));
+		setSize(new Dimension(400, 600));
 		mainPanel = new JPanel();
 		textLabel = new JLabel("<html>Please Enter<br>Your Name:</html>");
 		inputField = new JTextField();

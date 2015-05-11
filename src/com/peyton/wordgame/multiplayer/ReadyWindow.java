@@ -35,6 +35,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 
 		initWindow();
 	}
+
 	public ReadyWindow(int currentPlayer, boolean isSingle) {
 		this.currentPlayer = currentPlayer;
 		this.isSingle = isSingle;
@@ -68,11 +69,11 @@ public class ReadyWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(button)) {
 			setVisible(false);
-			if(isSingle){
+			if (isSingle) {
 				new GameWindow(2);
+			} else {
+				new GameWindow(currentPlayer);
 			}
-			else{
-			new GameWindow(currentPlayer);}
 		}
 
 	}

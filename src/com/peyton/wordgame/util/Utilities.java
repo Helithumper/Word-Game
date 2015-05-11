@@ -38,33 +38,33 @@ public class Utilities {
 
 	public static final Font TITLE_FONT = new Font("Serif", Font.BOLD, 36);
 	public static final Font TEXT_FONT = new Font("Serif", Font.BOLD, 16);
-	
-	public static void openInBrowser(String url)
-	{
-	    try
-	        {
-	            URI uri = new URL(url).toURI();
-	            Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-	            if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE))
-	                desktop.browse(uri);
-	        }
-	    catch (Exception e)
-	        {
-	            /*
-	             *  I know this is bad practice 
-	             *  but we don't want to do anything clever for a specific error
-	             */
-	            e.printStackTrace();
 
-	            // Copy URL to the clipboard so the user can paste it into their browser
-	            StringSelection stringSelection = new StringSelection(url);
-	            Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-	            clpbrd.setContents(stringSelection, null);
-	            // Notify the user of the failure
-	            throwErrorBox("This program just tried to open a webpage." + "\n"
-	                + "The URL has been copied to your clipboard, simply paste into your browser to access.",
-	                    "Webpage: " + url);
-	        }
+	public static void openInBrowser(String url) {
+		try {
+			URI uri = new URL(url).toURI();
+			Desktop desktop = Desktop.isDesktopSupported() ? Desktop
+					.getDesktop() : null;
+			if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE))
+				desktop.browse(uri);
+		} catch (Exception e) {
+			/*
+			 * I know this is bad practice but we don't want to do anything
+			 * clever for a specific error
+			 */
+			e.printStackTrace();
+
+			// Copy URL to the clipboard so the user can paste it into their
+			// browser
+			StringSelection stringSelection = new StringSelection(url);
+			Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clpbrd.setContents(stringSelection, null);
+			// Notify the user of the failure
+			throwErrorBox(
+					"This program just tried to open a webpage."
+							+ "\n"
+							+ "The URL has been copied to your clipboard, simply paste into your browser to access.",
+					"Webpage: " + url);
+		}
 	}
 
 }

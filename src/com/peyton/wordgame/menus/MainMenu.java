@@ -80,6 +80,5 @@ public class MainMenu extends JFrame implements ActionListener {
 		}
 
 	}
-	
 
 }

@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Dictionary {
 	private String[] dictionary;
-	
-	public Dictionary(){
-		File file = new File(Dictionary.class.getResource("nounlist.txt").getPath());
-		
-		try{
+
+	public Dictionary() {
+		File file = new File(Dictionary.class.getResource("nounlist.txt")
+				.getPath());
+
+		try {
 			Scanner reader = new Scanner(file);
 			int i = 0;
 			dictionary = new String[1000];
@@ -18,12 +19,13 @@ public class Dictionary {
 				i++;
 			}
 			reader.close();
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public String getWord(int index){return dictionary[index];}
-	
+
+	public String getWord(int index) {
+		return dictionary[index];
+	}
+
 }

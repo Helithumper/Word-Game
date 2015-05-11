@@ -16,7 +16,7 @@ import com.peyton.wordgame.multiplayer.ReadyWindow;
 import com.peyton.wordgame.util.StaticStorage;
 import com.peyton.wordgame.util.Utilities;
 
-public class SinglePlayerEndGamePanel extends JFrame implements ActionListener{
+public class SinglePlayerEndGamePanel extends JFrame implements ActionListener {
 	private boolean isWinner;
 	private JPanel titlePanel, buttonsPanel;
 	private JLabel titleLabel, scoresLabel;
@@ -44,7 +44,8 @@ public class SinglePlayerEndGamePanel extends JFrame implements ActionListener{
 			titleLabel = new JLabel("Winner!");
 
 		} else {
-			titleLabel = new JLabel("LOSER! The Answer was " +answer.toUpperCase());
+			titleLabel = new JLabel("LOSER! The Answer was "
+					+ answer.toUpperCase());
 		}
 		titleLabel.setFont(Utilities.TITLE_FONT);
 		titlePanel.setLayout(new GridLayout(2, 1));
@@ -72,7 +73,7 @@ public class SinglePlayerEndGamePanel extends JFrame implements ActionListener{
 		}
 		if (e.getSource().equals(nextRoundButton)) {
 			setVisible(false);
-			new ReadyWindow(0,true);
+			new ReadyWindow(0, true);
 		}
 
 	}

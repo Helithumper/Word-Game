@@ -95,13 +95,12 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	private void updateLives() {
 		numLivesLost++;
-		if (numLivesLost == 4 && currentPlayerID!=2) {
+		if (numLivesLost == 4 && currentPlayerID != 2) {
 			setVisible(false);
-			new EndGamePanel(false, currentPlayerID,answerWordString);
-		}
-		else if(numLivesLost==4 && currentPlayerID==2){
+			new EndGamePanel(false, currentPlayerID, answerWordString);
+		} else if (numLivesLost == 4 && currentPlayerID == 2) {
 			setVisible(false);
-			new SinglePlayerEndGamePanel(false,answerWordString);
+			new SinglePlayerEndGamePanel(false, answerWordString);
 		}
 		lives[lives.length - numLivesLost].setText("NOT HERE");
 
@@ -109,7 +108,8 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(submitButton) || e.getSource().equals(guessField)) {
+		if (e.getSource().equals(submitButton)
+				|| e.getSource().equals(guessField)) {
 			if (guessField.getText().length() != answerWordString.length()) {
 				Utilities.throwErrorBox(
 						"Your Guess is not the same length as the answer",
@@ -125,13 +125,13 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	private void endGame() {
 		setVisible(false);
-		if(currentPlayerID!=2){
-		StaticStorage.playerScores[currentPlayerID]++;
-		new EndGamePanel(true, currentPlayerID, answerWordString);}
-		else{
+		if (currentPlayerID != 2) {
+			StaticStorage.playerScores[currentPlayerID]++;
+			new EndGamePanel(true, currentPlayerID, answerWordString);
+		} else {
 			StaticStorage.playerScores[0]++;
 			setVisible(false);
-			new SinglePlayerEndGamePanel(true,answerWordString);
+			new SinglePlayerEndGamePanel(true, answerWordString);
 		}
 	}
 }

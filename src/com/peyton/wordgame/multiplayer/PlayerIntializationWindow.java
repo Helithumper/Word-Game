@@ -57,7 +57,9 @@ public class PlayerIntializationWindow extends JFrame implements ActionListener 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(submitButton) || e.getSource().equals(player1Name) || e.getSource().equals(player2Name)) {
+		if (e.getSource().equals(submitButton)
+				|| e.getSource().equals(player1Name)
+				|| e.getSource().equals(player2Name)) {
 			setVisible(false);
 			StaticStorage.playerNames[0] = player1Name.getText();
 			StaticStorage.playerNames[1] = player2Name.getText();
