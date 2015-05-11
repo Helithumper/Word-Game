@@ -8,4 +8,9 @@ public class StaticStorage {
 	public StaticStorage() {
 
 	}
+
+	public static void emptyScorePlayer() {
+		playerNames = new String[2];
+		playerScores = new int[2];
+	}
 }

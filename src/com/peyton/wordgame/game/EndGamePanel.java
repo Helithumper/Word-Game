@@ -77,6 +77,7 @@ public class EndGamePanel extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(mainMenuButton)) {
 			setVisible(false);
+			StaticStorage.emptyScorePlayer();
 			new MainMenu();
 		}
 		if (e.getSource().equals(nextRoundButton)) {

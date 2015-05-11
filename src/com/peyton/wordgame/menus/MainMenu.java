@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import com.peyton.wordgame.gamestates.SinglePlayerGameWindow;
 import com.peyton.wordgame.multiplayer.PlayerIntializationWindow;
 import com.peyton.wordgame.singleplayer.SinglePlayerInstantiationWindow;
 import com.peyton.wordgame.util.Utilities;
