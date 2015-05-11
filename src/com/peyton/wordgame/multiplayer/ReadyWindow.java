@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import com.peyton.wordgame.game.GameWindow;
 import com.peyton.wordgame.util.StaticStorage;
 import com.peyton.wordgame.util.Utilities;
+import com.sun.glass.events.KeyEvent;
 
 public class ReadyWindow extends JFrame implements ActionListener {
 
@@ -58,6 +59,7 @@ public class ReadyWindow extends JFrame implements ActionListener {
 		button = new JButton("READY!");
 		button.addActionListener(this);
 		buttonPanel.add(button);
+		button.setMnemonic(KeyEvent.VK_ENTER);
 		add(buttonPanel);
 
 		pack();

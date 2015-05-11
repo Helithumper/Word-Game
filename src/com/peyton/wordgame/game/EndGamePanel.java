@@ -45,7 +45,7 @@ public class EndGamePanel extends JFrame implements ActionListener {
 		mainMenuButton = new JButton("Main Menu");
 		nextRoundButton = new JButton("Start Next Round");
 		if (isWinner) {
-			titleLabel = new JLabel("Winner!");
+			titleLabel = new JLabel("Winner! The Answer was " +answer.toUpperCase());
 
 		} else {
 			titleLabel = new JLabel("LOSER! The Answer was "

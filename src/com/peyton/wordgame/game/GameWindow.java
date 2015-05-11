@@ -78,11 +78,11 @@ public class GameWindow extends JFrame implements ActionListener {
 
 	private void setHint() {
 		String result = "";
-
+		String guess = guessField.getText().toLowerCase();
 		for (int i = 0; i < answerWordString.length(); i++) {
-			if (guessField.getText().charAt(i) == answerWordString.charAt(i))
-				result += guessField.getText().charAt(i);
-			else if (answerWordString.indexOf(guessField.getText().charAt(i)) != -1) {
+			if (guess.charAt(i) == answerWordString.charAt(i))
+				result += guess.charAt(i);
+			else if (answerWordString.indexOf(guess.charAt(i)) != -1) {
 				result += "^";
 			} else {
 				result += "*";
@@ -114,7 +114,7 @@ public class GameWindow extends JFrame implements ActionListener {
 				Utilities.throwErrorBox(
 						"Your Guess is not the same length as the answer",
 						"Length Error");
-			} else if (guessField.getText().equals(answerWordString)) {
+			} else if (guessField.getText().equalsIgnoreCase(answerWordString)) {
 				endGame();
 			} else {
 				setHint();
